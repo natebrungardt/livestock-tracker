@@ -6,8 +6,11 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [herdMenuOpen, setHerdMenuOpen] = useState(false);
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -37,23 +40,120 @@ export default function Navbar() {
             <Button
               component={Link}
               to="/"
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{ mx: 2, my: 2, color: "white", display: "block" }}
             >
               Home
             </Button>
+            <Box
+              onMouseEnter={() => setHerdMenuOpen(true)}
+              onMouseLeave={() => setHerdMenuOpen(false)}
+              sx={{ position: "relative" }}
+            >
+              <Button sx={{ mx: 2, my: 2, color: "white", display: "block" }}>
+                Herds
+              </Button>
+              {herdMenuOpen && (
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "100%",
+                    left: 0,
+                    backgroundColor: "white",
+                    boxShadow: 2,
+                    borderRadius: 1,
+                    zIndex: 1000,
+                    minWidth: "150px",
+                  }}
+                >
+                  <Button
+                    component={Link}
+                    to="/main-herd"
+                    fullWidth
+                    sx={{
+                      color: "black",
+                      justifyContent: "flex-start",
+                      textTransform: "none",
+                      display: "block",
+                    }}
+                  >
+                    Main Herd
+                  </Button>
+                  <Button
+                    component={Link}
+                    to="/fats"
+                    fullWidth
+                    sx={{
+                      color: "black",
+                      justifyContent: "flex-start",
+                      textTransform: "none",
+                      display: "block",
+                    }}
+                  >
+                    Fats
+                  </Button>
+                  <Button
+                    component={Link}
+                    to="/feeders"
+                    fullWidth
+                    sx={{
+                      color: "black",
+                      justifyContent: "flex-start",
+                      textTransform: "none",
+                      display: "block",
+                    }}
+                  >
+                    Feeders
+                  </Button>
+                  <Button
+                    component={Link}
+                    to="/history"
+                    fullWidth
+                    sx={{
+                      color: "black",
+                      justifyContent: "flex-start",
+                      textTransform: "none",
+                      display: "block",
+                    }}
+                  >
+                    History
+                  </Button>
+                </Box>
+              )}
+            </Box>
             <Button
               component={Link}
-              to="/cows"
-              sx={{ my: 2, color: "white", display: "block" }}
+              to="/vaccinating"
+              sx={{ mx: 2, my: 2, color: "white", display: "block" }}
             >
-              Cows
+              Vaccinating
             </Button>
             <Button
               component={Link}
-              to="/cows/:id"
-              sx={{ my: 2, color: "white", display: "block" }}
+              to="/sicks"
+              sx={{ mx: 2, my: 2, color: "white", display: "block" }}
             >
-              Cow Detail Page
+              Sicks
+            </Button>
+            <Button
+              component={Link}
+              to="/heat-watch"
+              sx={{ mx: 2, my: 2, color: "white", display: "block" }}
+            >
+              Heat Watch
+            </Button>
+            <Button
+              component={Link}
+              to="/breds"
+              sx={{ mx: 2, my: 2, color: "white", display: "block" }}
+            >
+              Breds
+            </Button>
+            <Button
+              component={Link}
+              to="/opens"
+              sx={{ mx: 2, my: 2, color: "white", display: "block" }}
+            >
+              Opens
             </Button>
           </Box>
           <Box sx={{ flexGrow: 0 }}></Box>
