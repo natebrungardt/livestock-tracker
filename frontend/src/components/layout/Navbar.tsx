@@ -155,6 +155,13 @@ export default function Navbar() {
             >
               Opens
             </Button>
+            <Button
+              component={Link}
+              to="/recent-activity"
+              sx={{ mx: 2, my: 2, color: "white", display: "block" }}
+            >
+              Recent Activity
+            </Button>
           </Box>
           <Box sx={{ flexGrow: 0 }}></Box>
         </Toolbar>

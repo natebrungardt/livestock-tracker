@@ -9,6 +9,7 @@ import MainHerd from "./pages/MainHerd";
 import Fats from "./pages/Fats";
 import Feeders from "./pages/Feeders";
 import History from "./pages/History";
+import RecentActivity from "./pages/RecentActivity";
 import CowDetailPage from "./pages/CowDetailPage";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
@@ -29,6 +30,7 @@ function App() {
         <Route path="/fats" element={<Fats />} />
         <Route path="/feeders" element={<Feeders />} />
         <Route path="/history" element={<History />} />
+        <Route path="/recent-activity" element={<RecentActivity />} />
         <Route path="/cows/:id" element={<CowDetailPage />} />
       </Routes>
     </>
